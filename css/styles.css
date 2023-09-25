@@ -1,0 +1,150 @@
+/* Global styles */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/poppins-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins';
+    background-color: #ffffff;
+    width: 1440px;
+    margin: auto;
+}
+/* Global styles end */
+
+
+/* Header styles */
+header {
+    width: 1440px;
+    background-color: #ffffff;
+    height: 100px;
+    display: flex;
+    align-items: center; 
+    position: fixed;
+    opacity: 0.98;
+    justify-content: center;
+}
+
+.logo img {
+    height: 90px;
+    width: 90px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin-left: 20px; /* Добавляем отступ слева для списка */
+}
+
+.nav li {
+    margin-right: 20px; /* Добавляем одинаковое расстояние между элементами */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.tools {
+    background-color: #000000; 
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 30px;
+    transition: transform 0.2s ease;
+}
+
+.tools:hover{
+    transform: scale(1.05);
+}
+
+.navbar-menu a{
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size .3s, color .3s;
+}
+
+.navbar-menu a:hover {
+    background-size: 100% 1px;
+    color:#000000;
+    opacity: 0.8;
+}
+/* Header styles end */
+
+
+/* Main page styles */
+
+.content-main-page {
+    background-color: #ffffff; 
+    text-align: center; 
+    height: 100vh; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.content-main-page h1 {
+    font-size: 36px; 
+    color: #000000; 
+}
+
+.content-main-page h2{
+    font-size: 16px;
+    color: #000000;
+}
+/* Main page styles end */
+
+
+/*Tools page styles*/
+.content-tools {
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: space-between;
+    position: relative; /* Добавляем относительное позиционирование для создания псевдоэлемента */
+}
+
+.content-tools::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F2F3F4; /* Цвет фона на всю ширину экрана */
+    z-index: -1; /* Помещаем псевдоэлемент под содержимым .content-tools */
+}
+
+.container .block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 120px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 10px 10px;
+    text-align: center;
+}
+/*Tools page styles end*/
