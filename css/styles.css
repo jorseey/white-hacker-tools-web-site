@@ -1,11 +1,11 @@
 /* Global styles */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-display: swap;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/poppins-v20-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
+    src: url('../fonts/poppins-v20-latin-regular.woff2') format('woff2');
+}
 
 body, h1, h2, h3, p {
     margin: 0;
@@ -15,27 +15,28 @@ body, h1, h2, h3, p {
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
-    width: 1440px;
-    margin: auto;
+    margin: 0;
 }
-/* Global styles end */
-
 
 /* Header styles */
 header {
-    width: 1440px;
     background-color: #ffffff;
-    height: 100px;
+    height: 90px;
     display: flex;
-    align-items: center; 
+    align-items: center;
     position: fixed;
     opacity: 0.98;
-    justify-content: center;
+    justify-content: center; /* Центрирование по горизонтали */
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
 .logo img {
-    height: 90px;
-    width: 90px;
+    height: 80px;
+    width: 80px;
+    margin-right: 20px; /* Добавьте немного отступа между лого и navbar */
 }
 
 .nav {
@@ -50,11 +51,11 @@ header {
     padding: 0;
     list-style: none;
     display: flex;
-    margin-left: 20px; /* Добавляем отступ слева для списка */
+    margin-left: 20px;
 }
 
 .nav li {
-    margin-right: 20px; /* Добавляем одинаковое расстояние между элементами */
+    margin-right: 20px;
 }
 
 a {
@@ -63,7 +64,7 @@ a {
 }
 
 .tools {
-    background-color: #000000; 
+    background-color: #000000;
     border: none;
     color: white;
     padding: 10px 16px;
@@ -75,11 +76,11 @@ a {
     transition: transform 0.2s ease;
 }
 
-.tools:hover{
+.tools:hover {
     transform: scale(1.05);
 }
 
-.navbar-menu a{
+.navbar-menu a {
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 0% 100%;
     background-repeat: no-repeat;
@@ -89,65 +90,82 @@ a {
 
 .navbar-menu a:hover {
     background-size: 100% 1px;
-    color:#000000;
+    color: #000000;
     opacity: 0.8;
 }
 /* Header styles end */
 
 
 /* Main page styles */
-
 .content-main-page {
-    background-color: #ffffff; 
-    text-align: center; 
-    height: 100vh; 
-    margin: 0; 
-    padding: 0; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
+    background-color: #ffffff;
+    text-align: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .content-main-page h1 {
-    font-size: 36px; 
-    color: #000000; 
+    font-size: 36px;
+    color: #000000;
 }
 
-.content-main-page h2{
+.content-main-page h2 {
     font-size: 16px;
     color: #000000;
 }
 /* Main page styles end */
 
-
-/*Tools page styles*/
+/* Tools page styles */
 .content-tools {
-    height: calc(100vh - 100px);
+    background-color: hsla(0, 0%, 84%, 0.849);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    position: relative; /* Добавляем относительное позиционирование для создания псевдоэлемента */
+    position: relative;
+    align-items: center;
+    height: calc(100vh - 90px);
 }
 
-.content-tools::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: hwb(0 38% 62% / 0.808); /* Цвет фона на всю ширину экрана */
-    z-index: -1; /* Помещаем псевдоэлемент под содержимым .content-tools */
-}
 
 .container .block {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 288px;
     height: 120px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    margin: 10px 10px;
-    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 13px;
+    margin: 1.03% 1.03%;
+    transition: 0.5s;
 }
-/*Tools page styles end*/
+
+.container .block:hover{
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .content-tools {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container .block {
+        flex: 0 0 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+}
+/* Tools page styles end */
+
+
+
+
+
+/* Footer styles*/
+footer{
+    width: 100vh;
+    height: 15vh;
+}
