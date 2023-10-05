@@ -56,6 +56,7 @@ header {
 
 .nav li {
     margin-right: 20px;
+    position: relative;
 }
 
 a {
@@ -73,7 +74,7 @@ a {
     font-size: 16px;
     border-radius: 30px;
     transition: transform 0.2s ease;
-    position: aboslute;
+    position: ablute;
 }
 
 .nav ul ul {
@@ -84,7 +85,7 @@ a {
 }
 
 .nav ul li:hover > ul {
-    display:block; 
+    display: block; 
 }
 
 .nav ul ul li {
@@ -109,7 +110,29 @@ a {
     opacity: 0.8;
 }
 
+/* Контейнер div, нужный для правильной постановки элемента на странице */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
+/* Скрытие выпадающего меню */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.submenu {
+    margin-top: 10px;
+    background-color: hsla(0, 0%, 86%, 0.897);
+    border: 1px solid rgba(189, 187, 187, 0.897);
+    border-radius: 13px;
+    text-align: center;
+
+}
 /* Header styles end */
 
 
