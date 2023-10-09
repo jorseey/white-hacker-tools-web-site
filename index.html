@@ -15,19 +15,11 @@
         <div class="nav">
             
             <ul class="navbar-menu">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Useful Materials</a></li>
-                <li><a href="#">History</a></li>
-                <div class="dropdown">
-                    <li><a href="#" class = "tools_list">Tools</a>
-                        <ul class="submenu">
-                            <li class="submenu-li"><a href="#search-subdomains">Search subdomains</a></li>
-                            <li class="submenu-li"><a href="#http-request">HTTP Request</a></li>
-                            <li class="submenu-li"><a href="#sqli">SQL Injection</a></li>
-                        </ul>
-                    </li>
-                </div>
+                <li><a href="#" onclick="changeContent('about-us')">About Us</a></li>
+                <li><a href="#" onclick="changeContent('contact')">Contact</a></li>
+                <li><a href="#" onclick="changeContent('useful-materials')">Useful Materials</a></li>
+                <li><a href="#" onclick="changeContent('history')">History</a></li>
+                <li><a href="#" class = "tools_list" onclick="changeContent('tools-list')"> Tools </a> </li>
             </ul>
 
 
@@ -36,40 +28,31 @@
     </header>
     
     <main class="main-content" id = "fullpage">
-
         <section id="content-main-page" class="content-main-page">
             <h1>White Hacker Tools</h1>
             <h2>Fast. Simple. Secure.</h2>
         </section>
 
-        <li></li>
-
-        <section id="search-subdomains" class="content-tools">
-            <div class="container">
-                <h1>Search subdomains.</h1>
-            </div>
-        </section>
-
-        <li></li>
-
-        <section id="http-request" class="content-tools">
-            <div class="container">
-                <h1>HTTP Request.</h1>
-            </div>
-        </section>
-
-        <li></li>
-
-        <section id="sqli" class="content-tools">
-            <div class="container">
-                <h1>SQL Injection</h1>
-            </div>
-        </section>
+        <div id ="content" class="content-transition">
+            <section id="tools-set" class="content-tools">
+                <div class="container">
+                    <div class="block">
+                        <a href="#"> Search Subdomains </a>
+                    </div>
+                    <div class="block">
+                        <a href="#"> HTTP requests</a>
+                    </div>
+                    <div class="block">
+                        <a href="#">SQL Injection</a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-        
     </footer>
 
+    <script src="./js/script.js"></script>
 </body>
 </html>

@@ -7,6 +7,10 @@
     src: url('../fonts/poppins-v20-latin-regular.woff2') format('woff2');
 }
 
+html {
+    scroll-behavior:smooth;
+}
+
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
@@ -14,19 +18,19 @@ body, h1, h2, h3, p {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
+    background-color: hsl(0, 100%, 100%);
     margin: 0;
 }
 
 /* Header styles */
 header {
-    background-color: #ffffff;
+    background-color: hwb(0 100% 0%);
     height: 90px;
     display: flex;
     align-items: center;
     position: fixed;
     opacity: 0.98;
-    justify-content: center; /* Центрирование по горизонтали */
+    justify-content: center;
     width: 100%;
     padding: 0 20px;
     box-sizing: border-box;
@@ -36,13 +40,13 @@ header {
 .logo img {
     height: 80px;
     width: 80px;
-    margin-right: 20px; /* Добавьте немного отступа между лого и navbar */
+    margin-right: 20px;
 }
 
 .nav {
     display: flex;
     align-items: center;
-    background-color: hsla(0, 0%, 86%, 0.897);
+    background-color: hwb(0 90% 10% / 0.897);
     border-radius: 20px;
 }
 
@@ -77,25 +81,6 @@ a {
     position: ablute;
 }
 
-.nav ul ul {
-    display:none;
-    position:absolute;
-    top: 100%;    
-    z-index: 10;
-}
-
-.nav ul li:hover > ul {
-    display: block; 
-}
-
-.nav ul ul li {
-    min-width: 170px;
-    float: none;
-    display: list-item;
-    position: relative;    
-}
-
-
 .navbar-menu a {
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 0% 100%;
@@ -110,29 +95,6 @@ a {
     opacity: 0.8;
 }
 
-/* Контейнер div, нужный для правильной постановки элемента на странице */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Скрытие выпадающего меню */
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.submenu {
-    margin-top: 10px;
-    background-color: hsla(0, 0%, 86%, 0.897);
-    border: 1px solid rgba(189, 187, 187, 0.897);
-    border-radius: 13px;
-    text-align: center;
-
-}
 /* Header styles end */
 
 
@@ -167,7 +129,8 @@ a {
     justify-content: space-between;
     position: relative;
     align-items: center;
-    height: calc(100vh - 90px);
+    height: calc(80vh);
+    padding: 20px;
 }
 
 
@@ -181,12 +144,26 @@ a {
     background-color: rgb(255, 255, 255);
     border-radius: 13px;
     margin-right: 10px;
-    transition: 0.5s;
+    transition: 0.6s;
 }
 
 .container .block:hover{
     transform: translateY(-5px);
 }
+
+.container .block a {
+    text-decoration: none;
+    color: hsl(0, 0%, 5%);
+    font-weight: bold;
+    display: block;
+}
+
+.container .block:hover {
+    box-shadow: -7px 7px 7px rgba(0, 0, 0, 0.2); /* Тень */
+}
+
+
+
 
 @media (max-width: 768px) {
     .content-tools {
@@ -202,6 +179,17 @@ a {
 /* Tools page styles end */
 
 
+/* Стили для анимации смены контента*/
+.content-transition {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-transition.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
 
 
 
