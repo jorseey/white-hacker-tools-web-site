@@ -36,23 +36,24 @@
         <div id ="content" class="content-transition">
             <section id="tools-set" class="content-tools">
                 <div class="container">
-                    <div class="block">
-                        <a href="#"> Search Subdomains </a>
-                    </div>
-                    <div class="block">
-                        <a href="#"> HTTP requests</a>
-                    </div>
-                    <div class="block">
-                        <a href="#">SQL Injection</a>
-                    </div>
+                    <div class="block" onclick="showContent('search-subdomains')"> Search Subdomains </div>
+                    <div class="block" onclick="showContent('http-requests')"> HTTP requests</div>
+                    <div class="block" onclick="showContent('sql-injection')">SQL Injection</div>
+                    
                 </div>
             </section>
         </div>
+
+        <div id="newContent" class="content-transition">
+            <!-- Здесь будет отображаться новое содержимое -->
+        </div>
+        <button id="hideButton" onclick="hideContent()">Скрыть контент</button>
     </main>
 
     <footer>
     </footer>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/changeContent.js"></script>
+    <script src="./js/showTools.js"></script>
 </body>
 </html>
