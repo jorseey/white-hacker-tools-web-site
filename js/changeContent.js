@@ -31,19 +31,14 @@ function changeContent(page) {
              `;
         } else if (page === 'tools-list') {
             contentDiv.innerHTML = `
-                <section id="tools-set" class="content-tools">
+            <section id="tools-set" class="content-tools">
                 <div class="container">
-                    <div class="block">
-                        <a href="#"> Search Subdomains </a>
-                    </div>
-                    <div class="block">
-                        <a href="#"> HTTP requests</a>
-                    </div>
-                    <div class="block">
-                        <a href="#">SQL Injection</a>
-                    </div>
+                    <div class="block" onclick="showContent('search-subdomains')"> Search Subdomains </div>
+                    <div class="block" onclick="showContent('http-requests')"> HTTP requests</div>
+                    <div class="block" onclick="showContent('sql-injection')">SQL Injection</div>
+                    <div class="block" onclick="showContent('subdomains-recon')">Subdomains recon</div>
                 </div>
-                </section>
+            </section>
             `;
         }
      contentDiv.classList.remove("fade-out");

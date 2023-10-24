@@ -1,12 +1,13 @@
 let isContentVisible = false;
+let currentContentId = null;
 
 function showContent(contentId) {
     const newContent = document.getElementById("newContent");
 
-    // Если контент скрыт, показываем его
-    if (!isContentVisible) {
-        newContent.style.display = "block";
-
+    // Если контент уже видим и это тот же контент, скрываем его
+    if (isContentVisible && currentContentId === contentId) {
+        hideContent();
+    } else {
         // Загружаем и отображаем новое содержимое
         if (contentId === 'search-subdomains') {
             newContent.innerHTML = `
@@ -25,8 +26,10 @@ function showContent(contentId) {
             `;
         }
 
-        // Устанавливаем флаг видимости контента
+        // Показываем новый контент
+        newContent.style.display = "block";
         isContentVisible = true;
+        currentContentId = contentId;
     }
 }
 
@@ -37,5 +40,7 @@ function hideContent() {
     if (isContentVisible) {
         newContent.style.display = "none";
         isContentVisible = false;
+        currentContentId = null;
     }
+    contentDiv.classList.remove("fade-out");
 }
