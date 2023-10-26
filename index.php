@@ -11,15 +11,15 @@
 <body>
     
     <header>
-        <div class="logo"><a href="#content-main-page"><img src="./img/logo.svg" alt="pic-logo"></a></div>
+        <div class="logo"><a style="cursor:pointer" id="main-page-button" onclick="changeContent('main-page')"><img src="./img/logo.svg" alt="pic-logo"></a></div>
         <div class="nav">
             
             <ul class="navbar-menu">
-                <li><a style="cursor:pointer;" onclick="changeContent('about-us')">About Us</a></li>
-                <li><a style="cursor:pointer;" onclick="changeContent('contact')">Contact</a></li>
-                <li><a style="cursor:pointer;" onclick="changeContent('useful-materials')">Useful Materials</a></li>
-                <li><a style="cursor:pointer;" onclick="changeContent('history')">History</a></li>
-                <li><a style="cursor:pointer;" class = "tools_list" onclick="changeContent('tools-list')"> Tools </a> </li>
+                <li><a style="cursor:pointer;" id="about-us-button" onclick="changeContent('about-us')">About Us</a></li>
+                <li><a style="cursor:pointer;" id="contact-button" onclick="changeContent('contact')">Contact</a></li>
+                <li><a style="cursor:pointer;" id="useful-materials-button" onclick="changeContent('useful-materials')">Useful Materials</a></li>
+                <li><a style="cursor:pointer;" id="history-button" onclick="changeContent('history')">History</a></li>
+                <li><a style="cursor:pointer;" id="tools-list-button" class="tools_list" onclick="changeContent('tools-list')"> Tools </a> </li>
             </ul>
 
 
@@ -44,6 +44,7 @@
         <button id="hideButton" onclick="hideContent()" style="display: none;">Скрыть контент</button>
 
 
+        
     </main>
 
     <footer>
@@ -51,5 +52,6 @@
 
     <script src="./js/changeContent.js"></script>
     <script src="./js/showTools.js"></script>
+    <script src="./js/activeButton.js"></script>
 </body>
 </html>

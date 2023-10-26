@@ -4,6 +4,7 @@ let currentContentId = null;
 function showContent(contentId) {
     const newContent = document.getElementById("newContent");
 
+
     // Если контент уже видим и это тот же контент, скрываем его
     if (isContentVisible && currentContentId === contentId) {
         hideContent();
@@ -23,6 +24,11 @@ function showContent(contentId) {
             newContent.innerHTML = `
                 <h1>SQL Injection</h1>
                 <p>Это новое содержимое для SQL Injection.</p>
+            `;
+        } else if (contentId === 'subdomains-recon') {
+            newContent.innerHTML = `
+                <h1>Subdomains recon</h1>
+                <p>Это точно новое содержимое для Subdomains recon </p>
             `;
         }
 
