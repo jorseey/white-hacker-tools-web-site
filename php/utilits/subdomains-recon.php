@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['domain'])) {
+    $domain = $_POST['domain'];
+    $url = 'https://crt.sh/?q=%.' . $domain . '&output=json';
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    if ($response !== false) {
+        $data = json_decode($response, true);
+
+        $subdomains = array_unique(array_column($data, 'name_value'));
+
+        if (!empty($subdomains)) {
+            $_SESSION['subdomains'] = $subdomains;
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,30 +44,13 @@
     </form>
 
     <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['domain'])) {
-        $domain = $_POST['domain'];
-        $url = 'https://crt.sh/?q=%.' . $domain . '&output=json';
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        if ($response !== false) {
-            $data = json_decode($response, true);
-
-            $subdomains = array_unique(array_column($data, 'name_value'));
-
-            if (!empty($subdomains)) {
-                echo "<h2>Results:</h2><pre id='results'>";
-                foreach ($subdomains as $subdomain) {
-                    echo htmlspecialchars($subdomain) . "<br>";
-                }
-                echo "</pre><button class=\"copy-button\" onclick=\"copyResults()\">Copy Results</button>";
-          echo "<button class=\"export-button\" onclick=\"exportResults('$domain')\">Export Results</button>";
-            }
+    if (isset($_SESSION['subdomains'])) {
+        echo "<h2>Results:</h2><pre id='results'>";
+        foreach ($_SESSION['subdomains'] as $subdomain) {
+            echo htmlspecialchars($subdomain) . "<br>";
         }
+        echo "</pre><button class=\"copy-button\" onclick=\"copyResults()\">Copy Results</button>";
+        echo "<button class=\"export-button\" onclick=\"exportResults('$domain')\">Export Results</button>";
     }
     ?>
 
